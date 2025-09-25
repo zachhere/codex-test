@@ -1,0 +1,324 @@
+:root {
+  color-scheme: light;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-ink: #0f172a;
+  --color-soft-ink: rgba(15, 23, 42, 0.72);
+  --color-paper: #f8fafc;
+  --color-accent: #bb2649;
+  --color-accent-soft: rgba(187, 38, 73, 0.12);
+  --color-highlight: rgba(255, 255, 255, 0.08);
+  --color-border: rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(187, 38, 73, 0.18), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.14), transparent 40%),
+    var(--color-paper);
+  color: var(--color-ink);
+  min-height: 100vh;
+}
+
+main.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem clamp(1.5rem, 4vw, 4rem) 4rem;
+  gap: 4rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.hero-description {
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.7;
+  color: var(--color-soft-ink);
+  max-width: 36rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.button.primary {
+  background: var(--color-accent);
+  color: white;
+  box-shadow: 0 15px 30px rgba(187, 38, 73, 0.25);
+}
+
+.button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(187, 38, 73, 0.3);
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-border);
+}
+
+.hero-visual {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 32px;
+  overflow: hidden;
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.95), rgba(187, 38, 73, 0.7));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2rem;
+  color: white;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+}
+
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(15, 23, 42, 0.85), transparent 70%);
+}
+
+.hero-visual-content {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-visual-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.hero-visual-subtitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  opacity: 0.8;
+}
+
+.collection-section,
+.lookbook-section,
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.section-heading p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-soft-ink);
+  max-width: 28rem;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.collection-card {
+  padding: 1.6rem;
+  border-radius: 20px;
+  background: white;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+.collection-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.collection-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-soft-ink);
+}
+
+.collection-card span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.lookbook-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.lookbook-tile {
+  position: relative;
+  border-radius: 22px;
+  padding: 2.5rem 1.5rem;
+  color: white;
+  overflow: hidden;
+  min-height: 240px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.lookbook-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.2));
+}
+
+.lookbook-tile span {
+  position: relative;
+}
+
+.lookbook-tile:nth-child(1) {
+  background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80') center/cover;
+}
+
+.lookbook-tile:nth-child(2) {
+  background: url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80') center/cover;
+}
+
+.lookbook-tile:nth-child(3) {
+  background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80') center/cover;
+}
+
+.cta-section {
+  background: var(--color-accent);
+  color: white;
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.45), transparent 55%);
+  opacity: 0.6;
+}
+
+.cta-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 32rem;
+}
+
+.cta-content h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.cta-content p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+@media (max-width: 640px) {
+  main.page {
+    padding-top: 2rem;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+}
